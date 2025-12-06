@@ -12,13 +12,13 @@
     <a-scene id="scene">
       <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
       <a-assets>
-        <img id="bricks" src="assets/brickPattern.jpg" crossorigin = "anonymous" />
+        <img id="bricks" src="assets/brickPattern.jpg">
       </a-assets>
       <a-entity environment="preset:starry"></a-entity>
       <a-entity id="box" 
                 geometry="primitive:box"
                 position="0 3 -5"
-                material="color:#0000ff; src: #bricks; repeat: 2 2; side: double">
+                material="src: #brick; repeat: 2 2; roughness: 1;">
       </a-entity>
       <a-entity light = "type:ambient ;color:white;"
         location = "0 0 -1"></a-entity>
