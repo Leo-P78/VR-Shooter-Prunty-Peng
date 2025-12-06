@@ -11,12 +11,14 @@
     <!-- Main scene definition -->
     <a-scene id="scene">
       <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+      <a-assets>
+        <img id="bricks" src="path/to/brickPattern.jpg">
+      </a-assets>
       <a-entity environment="preset:starry"></a-entity>
-
       <a-entity id="box" 
                 geometry="primitive:box"
                 position="0 3 -5"
-                material="color:blue; src: brickPattern.jpg; repeat: 2 2">
+                material="color:blue; src: #bricks; repeat: 2 2">
       </a-entity>
       <a-entity light = "type:ambient ;color:white;"
         location = "0 0 -1"></a-entity>
