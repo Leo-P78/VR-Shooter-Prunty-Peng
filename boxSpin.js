@@ -1,4 +1,4 @@
-/* global AFRAME, BOX_SPEED */
+global AFRAME, BOX_SPEED
 
 AFRAME.registerComponent('box-spin', {
 
