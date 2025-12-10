@@ -9,4 +9,3 @@ AFRAME.registerComponent('box-spin', {
   },
   
 });
-
