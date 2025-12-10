@@ -20,12 +20,11 @@
             geometry="primitive:box"
             position="0 3 -5"
             material="color: blue; src: https://raw.githubusercontent.com/Leo-P78/VR-Shooter-Prunty-Peng/refs/heads/main/assets/brickPattern.jpg">
-            <a-animation attribute="rotation"
-                   dur="3000"
-                   from="0 0 0"
-                   to="0 360 0"
-                   repeat="indefinite"
-                   easing="linear"></a-animation>
+            animation= "property: rotation; 
+                       to: 0 360 0; 
+                       dur: 3000; 
+                       repeat: indefinite; 
+                       easing: linear;"
       </a-entity>
 
       <a-entity light = "type:ambient ;color:white;"
