@@ -20,15 +20,22 @@
             geometry="primitive:box"
             position="0 3 -5"
             material="color: blue; src: https://raw.githubusercontent.com/Leo-P78/VR-Shooter-Prunty-Peng/refs/heads/main/assets/brickPattern.jpg">
-            animation= "property: rotation; 
-                       to: 0 360 0; 
-                       dur: 3000; 
-                       repeat: indefinite; 
-                       easing: linear;"
       </a-entity>
 
       <a-entity light = "type:ambient ;color:white;"
         location = "0 0 -1"></a-entity>
+      <a-entity camera 
+                look-controls
+                id="camera"
+                position="0 1.5 0"
+                rotation="0 0 0">
+        
+        <a-entity raycaster 
+                  objects: .clickable>
+        </a-entity>
+        
+      </a-entity>
+
     </a-scene>
     
   </body>
