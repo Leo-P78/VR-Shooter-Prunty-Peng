@@ -12,10 +12,10 @@ AFRAME.registerComponent('click-on-box', {
     }
 
   boxClicked: function() {
-  this.el.setAttribute('position', {
-      x: getRandomInt(-10,10),
-      y: getRandomInt(1,10),
-      z: getRandomInt(-2,-10)
+    this.el.setAttribute('position', {
+        x: getRandomInt(-10,10),
+        y: getRandomInt(1,10),
+        z: getRandomInt(-2,-10)
     });
   }
 });
