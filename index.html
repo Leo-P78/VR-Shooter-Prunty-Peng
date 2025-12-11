@@ -25,11 +25,17 @@
 
       <a-entity light = "type:ambient ;color:white;"
         location = "0 0 -1"></a-entity>
-      <a-entity camera 
+      <a-entity camera
                 look-controls
                 id="camera"
                 position="0 1.5 0"
-                rotation="0 0 0">
+                rotation="0 0 0"
+        <a-entity cursor
+                position="0 0 -4"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                material="color: red; shader: flat">
+        </a-entity>
+>
         
         <a-entity raycaster 
                   objects: .clickable>
