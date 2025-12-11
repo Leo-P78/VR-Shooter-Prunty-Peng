@@ -14,9 +14,9 @@ AFRAME.registerComponent('collide', {
  collide: function() {
    let box = document.getElementById('box');
    let position = box.getAttribute('position');
-   position.x = Math.random() * 10 * ((Math.random() < 0.5) ? -1 : 1);
-   position.y = Math.random() * 9 + 1;  // Minimum y-value is 1 so it's above ground
-   position.z = -(Math.random() * 8 + 2);
+   position.x = parseInt(Math.random() * (10 - (-10)) + (-10), 10);
+   position.y = parseInt(Math.random() * (7 - 1) + 1, 10);  // Minimum y-value is 1 so it's above ground
+   position.z = parseInt(Math.random() * (-2 - (-10)) + (-10), 10);
    box.setAttribute('position', position);
    this.el.setAttribute('visible', false);
  },
