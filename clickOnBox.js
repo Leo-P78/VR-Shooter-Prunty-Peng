@@ -6,11 +6,11 @@ AFRAME.registerComponent('click-on-box', {
     this.el.addEventListener('click', this.boxClicked.bind(this));
   },
   boxClicked: function() {
-    this.el.setAttribute('position', {
-        x: parseInt(Math.random() * (10 - (-10)) + (-10), 10),
-        y: parseInt(Math.random() * (10 - 1) + (1), 10),
-        z: parseInt(Math.random() * (-2 - (-10)) + (-10), 10)
-    });
-  }
+  // Get a reference to the torpedo by looking at the id value
+  // of the HTML element and emit the 'fire' event
+  let torpedo = document.getElementById('torpedo');
+  let boxPosition = this.el.getAttribute('position')
+  torpedo.emit('fire', {boxPosition: boxPosition})
+}
 });
 
