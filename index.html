@@ -16,12 +16,15 @@
       <script src="notLookingAtBox.js"></script>
       <script src="boxSpin.js"></script>
       <script src="constants.js"></script>
+      <script src="collide.js"></script>
+      <script src="https://unpkg.com/aframe-aabb-collider-component/dist/aframe-aabb-collider-component.min.js"></script>
       <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
       <a-entity environment="preset:starry"></a-entity>
       <a-entity box-spin looking-at-box not-looking-at-box 
             id="box" 
             geometry="primitive:box"
             position="0 3 -5"
+            class = "clickable detect-collide"
             material="color: blue; src: https://raw.githubusercontent.com/Leo-P78/VR-Shooter-Prunty-Peng/refs/heads/main/assets/brickPattern.jpg">
       </a-entity>
 
@@ -41,12 +44,13 @@
                   geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                   material="color: red; shader: flat">
         </a-entity>
-        <a-entity fire
+        <a-entity fire collide
           id="torpedo"
           geometry="primitive:sphere; radius: 0.1"
           material="color: white"
           visible="false"
-          position="0 0 -1">
+          position="0 0 -1"
+          aabb-collider="objects: .detect-collide">
         </a-entity>
       </a-entity>
     </a-scene>
