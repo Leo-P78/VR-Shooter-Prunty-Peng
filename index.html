@@ -36,13 +36,17 @@
                   objects: .clickable>
         </a-entity>
         <a-entity cursor
-                  position="0 0 -4"
-                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.05"
+                  position="0 0 -1.5"
+                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                   material="color: red; shader: flat">
         </a-entity>
-        
+        <a-entity id="torpedo"
+          geometry="primitive:sphere; radius: 0.5"
+          material="color: white"
+          visible="false"
+          position="0 0 -1">
+        </a-entity>
       </a-entity>
-
     </a-scene>
     
   </body>
