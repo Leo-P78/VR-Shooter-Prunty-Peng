@@ -7,9 +7,9 @@ AFRAME.registerComponent('click-on-box', {
   },
   boxClicked: function() {
     this.el.setAttribute('position', {
-        x: parseInt(Math.random() * (5 - (-5)) + (-5), 10),
-        y: parseInt(Math.random() * (1 - 5) + (-5), 10),
-        z: parseInt(Math.random() * (-2 - (-5)) + (-5), 10)
+        x: parseInt(Math.random() * (10 - (-10)) + (-10), 10),
+        y: parseInt(Math.random() * (10 - 1) + (1), 10),
+        z: parseInt(Math.random() * (-2 - (-10)) + (-10), 10)
     });
   }
 });
