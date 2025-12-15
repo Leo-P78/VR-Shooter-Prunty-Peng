@@ -36,14 +36,30 @@ AFRAME.registerComponent('fire', {
 
  tick: function(time, timeDelta) {
    if (this.el.getAttribute('visible')) {
-     let pos = this.el.getAttribute('position')
-     let torpedoDx = this.getDx(pos)
+     // Get world position of torpedo
+     let worldPos = new THREE.Vector3();
+     this.el.object3D.getWorldPosition(worldPos);
      
-     if (torpedoDx > this.data.boxDistance + TORPEDO_MARGIN) {
-       this.el.setAttribute('visible', false)
+     // Get camera world position
+     let camera = document.getElementById('camera');
+     let cameraWorldPos = new THREE.Vector3();
+     camera.object3D.getWorldPosition(cameraWorldPos);
+     
+     // Calculate distance traveled from camera
+     let distanceTraveled = this.getDistance(
+       {x: cameraWorldPos.x, y: cameraWorldPos.y, z: cameraWorldPos.z},
+       {x: worldPos.x, y: worldPos.y, z: worldPos.z}
+     );
+     
+     console.log('Distance traveled:', distanceTraveled.toFixed(2), 'Max:', (this.data.boxDistance + TORPEDO_MARGIN).toFixed(2));
+     
+     if (distanceTraveled > this.data.boxDistance + TORPEDO_MARGIN) {
+       this.el.setAttribute('visible', false);
+       console.log('Torpedo went too far, hiding');
      } else {
+       let pos = this.el.getAttribute('position');
        pos.z += -timeDelta * TORPEDO_SPEED / 1000.0;
-       this.el.setAttribute('position', pos)
+       this.el.setAttribute('position', pos);
      }
    }
  },
