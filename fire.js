@@ -18,6 +18,7 @@ AFRAME.registerComponent('fire', {
      
      // Calculate distance from camera to box
      this.data.boxDistance = this.getDistance(cameraPos, boxPos);
+     console.log('Firing torpedo! Camera pos:', cameraPos, 'Box pos:', boxPos, 'Distance:', this.data.boxDistance);
      
      this.el.setAttribute('visible', true);
      this.el.setAttribute('position', {x: 0, y: 0, z: -1});
@@ -25,27 +26,4 @@ AFRAME.registerComponent('fire', {
  },
 
  tick: function(time, timeDelta) {
-   if (this.el.getAttribute('visible')) {
-     let pos = this.el.getAttribute('position')
-     let torpedoDx = this.getDx(pos)
-     if (torpedoDx > this.data.boxDistance + TORPEDO_MARGIN) {
-       this.el.setAttribute('visible', false)
-     } else {
-       pos.z += -timeDelta * TORPEDO_SPEED / 1000.0;
-       this.el.setAttribute('position', pos)
-     }
-   }
- },
-
- getDx: function(vec3) {
-   return Math.sqrt(vec3.x*vec3.x + vec3.y*vec3.y + vec3.z*vec3.z)
- },
- 
- getDistance: function(pos1, pos2) {
-   let dx = pos2.x - pos1.x;
-   let dy = pos2.y - pos1.y;
-   let dz = pos2.z - pos1.z;
-   return Math.sqrt(dx*dx + dy*dy + dz*dz);
- }
-
-});
+   if (this.el.getAttribute('
