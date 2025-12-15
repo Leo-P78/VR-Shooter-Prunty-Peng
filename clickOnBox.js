@@ -7,11 +7,10 @@ AFRAME.registerComponent('click-on-box', {
   },
   
   boxClicked: function() {
-    // Always get the box position directly by ID
-    let box = document.getElementById('box');
-    let boxPosition = box.getAttribute('position');
+    // this.el is now the box itself
+    let boxPosition = this.el.getAttribute('position');
     
-    console.log('Click detected! Box position:', boxPosition);
+    console.log('Box clicked! Position:', boxPosition);
     
     let torpedo = document.getElementById('torpedo');
     torpedo.emit('fire', {boxPosition: boxPosition});
