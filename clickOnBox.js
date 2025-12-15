@@ -4,27 +4,29 @@ AFRAME.registerComponent('click-on-box', {
 
   init: function () {
     this.el.addEventListener('click', this.boxClicked.bind(this));
-    this.raycaster = null;
     console.log('click-on-box component initialized on:', this.el);
   },
 
   boxClicked: function() {
     console.log('CLICK EVENT FIRED!');
     
-    // Get the raycaster from the parent entity
-    if (!this.raycaster) {
-      console.log('Getting raycaster from parent');
-      this.raycaster = this.el.parentNode.components.raycaster;
-      console.log('Raycaster:', this.raycaster);
-    }
+    // Get the camera (parent of cursor) and find its raycaster child
+    let camera = this.el.parentNode;
+    console.log('Camera:', camera);
     
-    if (!this.raycaster) {
+    // Find the raycaster entity (sibling of cursor)
+    let raycasterEl = camera.querySelector('[raycaster]');
+    console.log('Raycaster element:', raycasterEl);
+    
+    if (!raycasterEl || !raycasterEl.components.raycaster) {
       console.log('ERROR: No raycaster found!');
       return;
     }
     
+    let raycaster = raycasterEl.components.raycaster;
+    
     // Get what the raycaster is currently intersecting
-    let intersections = this.raycaster.intersectedEls;
+    let intersections = raycaster.intersectedEls;
     
     console.log('Intersections:', intersections);
     
