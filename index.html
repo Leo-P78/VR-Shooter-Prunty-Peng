@@ -20,7 +20,7 @@
       <script src="https://unpkg.com/aframe-aabb-collider-component/dist/aframe-aabb-collider-component.min.js"></script>
       <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
       <a-entity environment="preset:starry"></a-entity>
-      <a-entity box-spin looking-at-box not-looking-at-box click-on-box
+      <a-entity box-spin looking-at-box not-looking-at-box
             id="box" 
             geometry="primitive:box"
             position="0 3 -5"
@@ -39,7 +39,7 @@
         <a-entity raycaster 
                   objects: .clickable>
         </a-entity>
-        <a-entity cursor
+        <a-entity cursor click-on-box
                   position="0 0 -1.5"
                   geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                   material="color: red; shader: flat">
